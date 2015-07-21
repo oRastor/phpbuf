@@ -2,7 +2,8 @@
 /**
  * Use tests in folder tests
  */
-require_once("./lib/PhpBuf.php");
+require_once 'vendor/autoload.php';
+
 require_once("./tests/Example.php");
 require_once("./tests/ExampleRepeat.php");
 require_once("./tests/Example/Test1.php");

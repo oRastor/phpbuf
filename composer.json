@@ -1,0 +1,17 @@
+{
+    "name": "rastor/phpbuf",
+    "description": "Protocol buffers PHP library",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Andrey Lepeshkin",
+            "email": "lilipoper@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-0": {
+            "PhpBuf_": "lib/"
+        }
+    }
+}
