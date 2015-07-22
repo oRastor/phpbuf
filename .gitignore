@@ -6,5 +6,5 @@ build/
 dist/
 bin/
 var/
-/nbproject/private/
+/nbproject/
 /vendor/
