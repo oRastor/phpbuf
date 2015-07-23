@@ -13,7 +13,7 @@ cat <<EOF > $VAR_DIR/1.php
 require_once(dirname(__FILE__) . "/../../lib/PhpBuf.php");
 class Foo extends PhpBuf_Message_Abstract {
 	public function __construct() {
-		\$this->setField("id", PhpBuf_Type::INT, PhpBuf_Rule::REPEATED, 1);
+		\$this->setField("id", PhpBuf\Type::INT, PhpBuf\Rule::REPEATED, 1);
 	}
 	public static function name(){
         return __CLASS__;
@@ -88,7 +88,7 @@ cat <<EOF > $VAR_DIR/2.php
 require_once(dirname(__FILE__) . "/../../lib/PhpBuf.php");
 class Foo extends PhpBuf_Message_Abstract {
 	public function __construct() {
-		\$this->setField("id", PhpBuf_Type::INT, PhpBuf_Rule::REPEATED, 1);
+		\$this->setField("id", PhpBuf\Type::INT, PhpBuf\Rule::REPEATED, 1);
 	}
 	public static function name(){
         return __CLASS__;
@@ -115,12 +115,12 @@ cat <<EOF > $VAR_DIR/3.php
 require_once(dirname(__FILE__) . "/../../lib/PhpBuf.php");
 class Message_Example extends PhpBuf_Message_Abstract {
     public function __construct() {
-        \$this->setField("id", PhpBuf_Type::INT, PhpBuf_Rule::REQUIRED, 1);
-        \$this->setField("balance", PhpBuf_Type::SINT, PhpBuf_Rule::REQUIRED, 2);
-        \$this->setField("isAdmin", PhpBuf_Type::BOOL, PhpBuf_Rule::REQUIRED, 3);
-        \$this->setField("status", PhpBuf_Type::ENUM, PhpBuf_Rule::REQUIRED, 4, array("active", "inactive", "deleted"));
-        \$this->setField("name", PhpBuf_Type::STRING, PhpBuf_Rule::REQUIRED, 5);
-        \$this->setField("bytes", PhpBuf_Type::BYTES, PhpBuf_Rule::REQUIRED, 6);
+        \$this->setField("id", PhpBuf\Type::INT, PhpBuf\Rule::REQUIRED, 1);
+        \$this->setField("balance", PhpBuf\Type::SINT, PhpBuf\Rule::REQUIRED, 2);
+        \$this->setField("isAdmin", PhpBuf\Type::BOOL, PhpBuf\Rule::REQUIRED, 3);
+        \$this->setField("status", PhpBuf\Type::ENUM, PhpBuf\Rule::REQUIRED, 4, array("active", "inactive", "deleted"));
+        \$this->setField("name", PhpBuf\Type::STRING, PhpBuf\Rule::REQUIRED, 5);
+        \$this->setField("bytes", PhpBuf\Type::BYTES, PhpBuf\Rule::REQUIRED, 6);
     }
     public static function name(){
         return __CLASS__;

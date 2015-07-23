@@ -10,8 +10,8 @@
     ],
     "require": {},
     "autoload": {
-        "psr-0": {
-            "PhpBuf_": "lib/"
+        "psr-4": {
+            "PhpBuf\\": "src/PhpBuf/"
         }
     }
 }
