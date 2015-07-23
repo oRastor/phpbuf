@@ -3,10 +3,10 @@ class PhpBuf_ReaderWriterTest extends PHPUnit_Framework_TestCase {
 	public function testWriteBytes() {
         $writer = new PhpBuf_IO_Writer();
         $writer->writeBytes("Test");
-        $this->assertEquals(4, $writer->getLenght(), "Lenght failure");
+        $this->assertEquals(4, $writer->getLength(), "Lenght failure");
         $this->assertEquals("Test", $writer->getData(), "Data failure");
         $writer->writeBytes(" Test");
-        $this->assertEquals(9, $writer->getLenght(), "Lenght failure");
+        $this->assertEquals(9, $writer->getLength(), "Lenght failure");
         $this->assertEquals("Test Test", $writer->getData(), "Data failure");
     }
 	public function testWriteByteWithLenghtMoreThan1() {
@@ -18,10 +18,10 @@ class PhpBuf_ReaderWriterTest extends PHPUnit_Framework_TestCase {
 	public function testWriteByte() {
 		$writer = new PhpBuf_IO_Writer();
         $writer->writeByte("T");
-        $this->assertEquals(1, $writer->getLenght(), "Lenght failure: " . $writer->getLenght() . ", " . $writer->getData());
+        $this->assertEquals(1, $writer->getLength(), "Lenght failure: " . $writer->getLength() . ", " . $writer->getData());
         $this->assertEquals("T", $writer->getData(), "Data failure: " . $writer->getData());
         $writer->writeByte("e");
-        $this->assertEquals(2, $writer->getLenght(), "Lenght failure: " . $writer->getLenght() . ", " . $writer->getData());
+        $this->assertEquals(2, $writer->getLength(), "Lenght failure: " . $writer->getLength() . ", " . $writer->getData());
         $this->assertEquals("Te", $writer->getData(), "Data failure: " . $writer->getData());
 	}
 	public function testWriterRedo() {
@@ -29,10 +29,10 @@ class PhpBuf_ReaderWriterTest extends PHPUnit_Framework_TestCase {
         $writer->writeBytes("One");
         $writer->writeBytes("Two");
         $writer->writeBytes("Three");
-        $this->assertEquals(11, $writer->getLenght(), "Lenght failure: " . $writer->getLenght() . ", " . $writer->getData());
+        $this->assertEquals(11, $writer->getLength(), "Lenght failure: " . $writer->getLength() . ", " . $writer->getData());
         $this->assertEquals("OneTwoThree", $writer->getData(), "Data failure: " . $writer->getData());
         $lastRecord = $writer->redo();
-        $this->assertEquals(6, $writer->getLenght(), "Lenght failure: " . $writer->getLenght() . ", " . $writer->getData());
+        $this->assertEquals(6, $writer->getLength(), "Lenght failure: " . $writer->getLength() . ", " . $writer->getData());
         $this->assertEquals("OneTwo", $writer->getData(), "Data failure: " . $writer->getData());
         $this->assertEquals("Three", $lastRecord, "Last record failure: " . $lastRecord);
 	}

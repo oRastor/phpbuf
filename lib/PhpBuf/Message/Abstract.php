@@ -73,7 +73,7 @@ abstract class PhpBuf_Message_Abstract implements PhpBuf_Message_Interface
     public static function readArray(PhpBuf_IO_Reader_Interface $reader, $messageClassName, $strict = true)
     {
         $result = array();
-        
+
         while ($reader->getPosition() < $reader->getLength()) {
             $length = PhpBuf_Base128::decodeFromReader($reader);
 
@@ -83,8 +83,40 @@ abstract class PhpBuf_Message_Abstract implements PhpBuf_Message_Interface
 
             $message = new $messageClassName();
             $message->read($messageReader, $strict);
-            
+
             array_push($result, $message);
+        }
+
+        return $result;
+    }
+    
+    public static function writeArray(PhpBuf_IO_Writer_Interface $writer, $messages) {
+        foreach ($messages as $item) {
+            $itemWriter = new PhpBuf_IO_Writer();
+            $item->write($itemWriter);
+            
+            $length = $itemWriter->getLength();
+            
+            PhpBuf_Base128::encodeToWriter($writer, $length);
+            $writer->writeBytes($itemWriter->getData());
+        }
+    }
+
+    public function toArray()
+    {
+        $result = array();
+        foreach ($this->fields as $field) {
+            $key = $this->indexToName[$field->getIndex()];
+            if ($field instanceof PhpBuf_Field_Message) {
+                if ($field->getValue() === null) {
+                    $result[$key] = $field->getValue();
+                } else {
+                    $result[$key] = $field->getValue()->toArray();
+                }
+                
+            } else {
+                $result[$key] = $field->getValue();
+            }
         }
         
         return $result;

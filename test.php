@@ -56,22 +56,22 @@ echo "Test Reader & Writer\n";
 $writer = new PhpBuf_IO_Writer();
 
 $writer->writeBytes("test1");
-echo "lenght: ". $writer->getLenght() ."\n";
+echo "lenght: ". $writer->getLength() ."\n";
 echo "test1 = ". $writer->getData() ."\n";
 $writer->writeBytes("test2");
-echo "lenght: ". $writer->getLenght() ."\n";
+echo "lenght: ". $writer->getLength() ."\n";
 echo "test1test2 = ". $writer->getData() ."\n";
 $writer->redo();
-echo "lenght: ". $writer->getLenght() ."\n";
+echo "lenght: ". $writer->getLength() ."\n";
 echo "test1 = ". $writer->getData() ."\n";
 $writer->writeByte("!");
-echo "lenght: ". $writer->getLenght() ."\n";
+echo "lenght: ". $writer->getLength() ."\n";
 echo "test1! = ". $writer->getData() ."\n";
 $writer->redo();
-echo "lenght: ". $writer->getLenght() ."\n";
+echo "lenght: ". $writer->getLength() ."\n";
 echo "test1 = ". $writer->getData() ."\n";
 $writer->writeBytes(" StringForReaders");
-echo "lenght: ". $writer->getLenght() ."\n";
+echo "lenght: ". $writer->getLength() ."\n";
 echo "test1 StringForReaders = ". $writer->getData() ."\n";
 
 $reader = PhpBuf_IO_Reader::createFromWriter($writer);

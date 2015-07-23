@@ -9,6 +9,6 @@ interface PhpBuf_IO_Writer_Interface {
     public function writeBytes($bytes);
     public function getPosition();
     public function redo();
-    public function getLenght();
+    public function getLength();
     public function getData();
 }

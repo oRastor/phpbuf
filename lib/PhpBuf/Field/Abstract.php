@@ -91,6 +91,10 @@ abstract class PhpBuf_Field_Abstract implements PhpBuf_Field_Interface {
     public function getExtra(){
         return $this->extra;
     }
+    public function getIndex() {
+        return $this->index;
+    }
+    
     /**
      * Read field from reader
      *

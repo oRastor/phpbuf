@@ -53,7 +53,7 @@ abstract class PhpBuf_RPC_Service_Client {
             $request->write($writer);
             
             $socket = $this->balancer->get();
-            $socket->write($writer->getData(), $writer->getLenght());
+            $socket->write($writer->getData(), $writer->getLength());
             $socket->shutdownWrite();
             
             $resultData = $socket->read(4096);

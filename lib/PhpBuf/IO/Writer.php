@@ -18,7 +18,7 @@ class PhpBuf_IO_Writer implements PhpBuf_IO_Writer_Interface {
     public function writeBytes($bytes){
         $this->lastLenght = strlen($bytes);
         $this->data .= $bytes;
-        $this->position = $this->getLenght();
+        $this->position = $this->getLength();
     }
 
     public function getPosition(){
@@ -30,7 +30,7 @@ class PhpBuf_IO_Writer implements PhpBuf_IO_Writer_Interface {
         $this->position = $this->position - $this->lastLenght;
         return $lastRecord;
     }
-    public function getLenght() {
+    public function getLength() {
         if(is_array($this->data)) {
             $this->data = implode('', $this->data);
         }
